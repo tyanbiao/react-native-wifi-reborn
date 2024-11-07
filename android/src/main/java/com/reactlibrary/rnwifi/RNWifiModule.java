@@ -394,7 +394,7 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
         if (isAndroidTenOrLater()) {
             connectAndroidQ(SSID, password, isHidden, promise);
         } else {
-            connectPreAndroidQ(SSID, password, promise);
+            new Thread(() -> {connectPreAndroidQ(SSID, password, promise);}).start();
         }
     }
 
